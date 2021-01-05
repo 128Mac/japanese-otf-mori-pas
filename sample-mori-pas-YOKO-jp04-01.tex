@@ -1,0 +1,185 @@
+\documentclass[dvipdfmx,uplatex,9pt]{jsarticle}
+%\documentclass[dvipdfmx,uplatex]{utarticle}
+%\documentclass[dvipdfmx]{bxjsarticle}
+
+\usepackage[uplatex,jis2004,expert,deluxe]{otf}
+%\usepackage[uplatex,expert,deluxe]{otf}
+%\usepackage[uplatex,deluxe]{otf}
+\usepackage{otf-mori-pas}
+\usepackage{pxrubrica}
+
+\def\setFontAllAtr#1#2#3{%
+\kanjifamily{#1}\kanjiseries{#2}\kanjishape{#3}\selectfont}
+
+\rubyfontsetup{\rubyfamily}
+
+\def\test#1#2#3#4{\noindent{\kanjifamily{#1}\kanjiseries{#2}\kanjishape{#3}\selectfont%
+    \makebox[11zw][l]{#4}%
+    あいうアーりじ――１２、“葛祇辻鷗”%
+    「森\UTF{9DD7}外」百\UTF{9592}、%
+    \jruby[h]{{\UTF{9AD9}}島屋}{たか|しま|や}、%
+    \CID{7652}飾区の\CID{13706}野家☃\ajKuroMaru*{01}%
+    \ajTsumesuji*{123}%
+  }\par}
+
+\def\testruby#1#2#3#4{\noindent{\kanjifamily{#1}\kanjiseries{#2}\kanjishape{#3}\selectfont%
+    \makebox[11zw][l]{#4}%
+    あいうえお ざじずぜぞー アイウエオ サシスセソ――１２、“葛祇辻鷗”%
+  }\par}
+
+
+\begin{document}\tracingonline=1 % トレースを端末にも出力
+
+\test{Ryumin}{l}{n}{リュウミンL}
+\test{Ryumin}{r}{n}{リュウミンR}
+\test{Ryumin}{m}{n}{リュウミンM}
+\test{Ryumin}{b}{n}{リュウミンB}
+\test{Ryumin}{eb}{n}{リュウミンEB}
+\test{Ryumin}{h}{n}{リュウミンH}
+\test{Ryumin}{eh}{n}{リュウミンEH}
+\test{Ryumin}{u}{n}{リュウミンU}
+\test{Ryumin}{l}{o}{リュウミンオールドL}
+\test{Ryumin}{r}{o}{リュウミンオールドR}
+\test{Ryumin}{m}{o}{リュウミンオールドM}
+\test{Ryumin}{b}{o}{リュウミンオールドB}
+\test{Ryumin}{eb}{o}{リュウミンオールドEB}
+\test{Ryumin}{h}{o}{リュウミンオールドH}
+\test{Ryumin}{eh}{o}{リュウミンオールドEH}
+\test{Ryumin}{u}{o}{リュウミンオールドU}
+
+\testruby{rubyRyumin}{l}{n}{リュウミンLルビ}
+\testruby{rubyRyumin}{r}{n}{リュウミンRルビ}
+\testruby{rubyRyumin}{m}{n}{リュウミンMルビ}
+\testruby{rubyRyumin}{b}{n}{リュウミンBルビ}
+\testruby{rubyRyumin}{eb}{n}{リュウミンEBルビ}
+\testruby{rubyRyumin}{h}{n}{リュウミンHルビ}
+\testruby{rubyRyumin}{eh}{n}{リュウミンEHルビ}
+\testruby{rubyRyumin}{u}{n}{リュウミンUルビ}
+
+\test{ShinGo}{el}{n}{新ゴEL}
+\test{ShinGo}{l}{n}{新ゴL}
+\test{ShinGo}{r}{n}{新ゴRL}
+\test{ShinGo}{m}{n}{新ゴM}
+\test{ShinGo}{db}{n}{新ゴDB}
+\test{ShinGo}{b}{n}{新ゴB}
+\test{ShinGo}{h}{n}{新ゴH}
+\test{ShinGo}{u}{n}{新ゴU}
+
+\testruby{rubyShinGo}{el}{n}{新ゴELルビ}
+\testruby{rubyShinGo}{l}{n}{新ゴLルビ}
+\testruby{rubyShinGo}{r}{n}{新ゴRLルビ}
+\testruby{rubyShinGo}{m}{n}{新ゴMルビ}
+\testruby{rubyShinGo}{db}{n}{新ゴDBルビ}
+\testruby{rubyShinGo}{b}{n}{新ゴBルビ}
+\testruby{rubyShinGo}{h}{n}{新ゴHルビ}
+\testruby{rubyShinGo}{u}{n}{新ゴUルビ}
+
+\test{ShinMGo}{l}{n}{新丸ゴL}
+\test{ShinMGo}{r}{n}{新丸ゴR}
+\test{ShinMGo}{m}{n}{新丸ゴM}
+\test{ShinMGo}{db}{n}{新丸ゴDB}
+\test{ShinMGo}{b}{n}{新丸ゴB}
+\test{ShinMGo}{h}{n}{新丸ゴH}
+\test{ShinMGo}{u}{n}{新丸ゴU}
+
+\testruby{rubyShinMGo}{l}{n}{新丸ゴLルビ}
+\testruby{rubyShinMGo}{r}{n}{新丸ゴRルビ}
+\testruby{rubyShinMGo}{m}{n}{新丸ゴMルビ}
+\testruby{rubyShinMGo}{db}{n}{新丸ゴDBルビ}
+\testruby{rubyShinMGo}{b}{n}{新丸ゴBルビ}
+\testruby{rubyShinMGo}{h}{n}{新丸ゴHルビ}
+\testruby{rubyShinMGo}{u}{n}{新丸ゴUルビ}
+
+\test{HiraMin}{w2}{n}{ヒラギノ明朝w2}
+\test{HiraMin}{w3}{n}{ヒラギノ明朝w3}
+\test{HiraMin}{w4}{n}{ヒラギノ明朝w4}
+\test{HiraMin}{w5}{n}{ヒラギノ明朝w5}
+\test{HiraMin}{w6}{n}{ヒラギノ明朝w6}
+\test{HiraMin}{w7}{n}{ヒラギノ明朝w7※}
+\test{HiraMin}{w8}{n}{ヒラギノ明朝w8※}
+\test{HiraMin}{w2}{o}{ヒラギノ明朝w2＋游築}
+\test{HiraMin}{w3}{o}{ヒラギノ明朝w3＋游築}
+\test{HiraMin}{w4}{o}{ヒラギノ明朝w4＋游築}
+\test{HiraMin}{w5}{o}{ヒラギノ明朝w5＋游築}
+\test{HiraMin}{w6}{o}{ヒラギノ明朝w6＋游築}
+\test{HiraMin}{w7}{o}{ヒラギノ明朝w7＋游築}
+\test{HiraMin}{w8}{o}{ヒラギノ明朝w8＋游築}
+
+\testruby{rubyHiraMin}{w2}{n}{ヒラギノ明朝w2ルビ}
+\testruby{rubyHiraMin}{w3}{n}{ヒラギノ明朝w3ルビ}
+\testruby{rubyHiraMin}{w4}{n}{ヒラギノ明朝w4ルビ※}
+\testruby{rubyHiraMin}{w5}{n}{ヒラギノ明朝w5ルビ※}
+\testruby{rubyHiraMin}{w6}{n}{ヒラギノ明朝w6ルビ}
+\testruby{rubyHiraMin}{w7}{n}{ヒラギノ明朝w7ルビ※}
+\testruby{rubyHiraMin}{w8}{n}{ヒラギノ明朝w8ルビ※}
+
+
+\test{HiraKaku}{w0}{n}{ヒラギノ角ゴw0※}
+\test{HiraKaku}{w1}{n}{ヒラギノ角ゴw1}
+\test{HiraKaku}{w2}{n}{ヒラギノ角ゴw2}
+\test{HiraKaku}{w3}{n}{ヒラギノ角ゴw3}
+\test{HiraKaku}{w4}{n}{ヒラギノ角ゴw4}
+\test{HiraKaku}{w5}{n}{ヒラギノ角ゴw5}
+\test{HiraKaku}{w6}{n}{ヒラギノ角ゴw6}
+\test{HiraKaku}{w7}{n}{ヒラギノ角ゴw7※}
+\test{HiraKaku}{w8}{n}{ヒラギノ角ゴw8※}
+\test{HiraKaku}{w9}{n}{ヒラギノ角ゴw9※}
+
+\testruby{rubyHiraKaku}{w0}{n}{ヒラギノ角ゴw0ルビ※}
+\testruby{rubyHiraKaku}{w1}{n}{ヒラギノ角ゴw1ルビ}
+\testruby{rubyHiraKaku}{w2}{n}{ヒラギノ角ゴw2ルビ}
+\testruby{rubyHiraKaku}{w3}{n}{ヒラギノ角ゴw3ルビ}
+\testruby{rubyHiraKaku}{w4}{n}{ヒラギノ角ゴw4ルビ}
+\testruby{rubyHiraKaku}{w5}{n}{ヒラギノ角ゴw5ルビ}
+\testruby{rubyHiraKaku}{w6}{n}{ヒラギノ角ゴw6ルビ}
+\testruby{rubyHiraKaku}{w7}{n}{ヒラギノ角ゴw7ルビ※}
+\testruby{rubyHiraKaku}{w8}{n}{ヒラギノ角ゴw8ルビ※}
+\testruby{rubyHiraKaku}{w9}{n}{ヒラギノ角ゴw9ルビ※}
+
+\test{HiraMaru}{w2}{n}{ヒラギノ丸ゴw2※}
+\test{HiraMaru}{w3}{n}{ヒラギノ丸ゴw3※}
+\test{HiraMaru}{w4}{n}{ヒラギノ丸ゴw4}
+\test{HiraMaru}{w5}{n}{ヒラギノ丸ゴw5※}
+\test{HiraMaru}{w6}{n}{ヒラギノ丸ゴw6※}
+\test{HiraMaru}{w8}{n}{ヒラギノ丸ゴw8※}
+
+\testruby{rubyHiraMaru}{w2}{n}{ヒラギノ丸ゴw2ルビ※}
+\testruby{rubyHiraMaru}{w3}{n}{ヒラギノ丸ゴw3ルビ※}
+\testruby{rubyHiraMaru}{w4}{n}{ヒラギノ丸ゴw4ルビ}
+\testruby{rubyHiraMaru}{w5}{n}{ヒラギノ丸ゴw5ルビ※}
+\testruby{rubyHiraMaru}{w6}{n}{ヒラギノ丸ゴw6ルビ※}
+\testruby{rubyHiraMaru}{w8}{n}{ヒラギノ丸ゴw8ルビ※}
+
+\test{TBkoin}{m}{n}{TB古印※}
+
+\testruby{rubyTBkoin}{m}{n}{TB古印ルビ※}
+
+
+\kanjifamily{hmc}\kanjiseries{l}\selectfont hmc l あア亜
+あいうアーり――１２３、“葛祇辻鷗” 森\UTF{9DD7}外、百\UTF{9592}、\UTF{9AD9}島屋、\CID{7652}飾区の\CID{13706}野家☃\ajKuroMaru*{01}\ajTsumesuji2{12}
+
+\kanjifamily{hmc}\kanjiseries{m}\selectfont hmc m あア亜
+あいうアーり――１２３、“葛祇辻鷗” 森\UTF{9DD7}外、百\UTF{9592}、\UTF{9AD9}島屋、\CID{7652}飾区の\CID{13706}野家☃\ajKuroMaru*{01}\ajTsumesuji2{12}
+
+\kanjifamily{hmc}\kanjiseries{bx}\selectfont hmc bx あア亜
+あいうアーり――１２３、“葛祇辻鷗” 森\UTF{9DD7}外、百\UTF{9592}、\UTF{9AD9}島屋、\CID{7652}飾区の\CID{13706}野家☃\ajKuroMaru*{01}\ajTsumesuji2{12}
+
+%\kanjifamily{hmc}\kanjiseries{l}\selectfont hmc l あア亜
+
+\kanjifamily{hgt}\kanjiseries{m}\selectfont hgt m あア亜
+あいうアーり――１２３、“葛祇辻鷗” 森\UTF{9DD7}外、百\UTF{9592}、\UTF{9AD9}島屋、\CID{7652}飾区の\CID{13706}野家☃\ajKuroMaru*{01}\ajTsumesuji2{12}
+
+\kanjifamily{hgt}\kanjiseries{bx}\selectfont hgt bx あア亜
+あいうアーり――１２３、“葛祇辻鷗” 森\UTF{9DD7}外、百\UTF{9592}、\UTF{9AD9}島屋、\CID{7652}飾区の\CID{13706}野家☃\ajKuroMaru*{01}\ajTsumesuji2{12}
+
+\kanjifamily{hgt}\kanjiseries{eb}\selectfont hgt eb あア亜
+あいうアーり――１２３、“葛祇辻鷗” 森\UTF{9DD7}外、百\UTF{9592}、\UTF{9AD9}島屋、\CID{7652}飾区の\CID{13706}野家☃\ajKuroMaru*{01}\ajTsumesuji2{12}
+
+%\kanjifamily{hgt}\kanjiseries{eb}\selectfont hgt eb あア亜
+
+\kanjifamily{mg}\kanjiseries{m}\selectfont mg m あア亜
+あいうアーり――１２３、“葛祇辻鷗” 森\UTF{9DD7}外、百\UTF{9592}、\UTF{9AD9}島屋、\CID{7652}飾区の\CID{13706}野家☃\ajKuroMaru*{01}\ajTsumesuji2{12}
+
+
+
+\end{document}

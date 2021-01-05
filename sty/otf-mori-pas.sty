@@ -1,0 +1,515 @@
+%
+% MORISAWA PASSPORT
+% リュウミン・新ゴ・新丸ゴ・リュウミンオールド
+% ヒラギノ明朝・角ゴ・丸ゴ・游築五号かな
+% TB古印体
+%
+
+\ProvidesPackage{otf-mori-pas}
+\RequirePackage{otf}
+
+\DeclareRobustCommand{\mpUTF}[1]{\begingroup%
+  \edef\reserved@a{Ryumin}%
+  \ifx\k@family\reserved@a \kanjifamily{utfjRyumin}%
+  \else\edef\reserved@a{ShinGo}%
+  \ifx\k@family\reserved@a \kanjifamily{utfjShinGo}%
+  \else\edef\reserved@a{ShinMGo}%
+  \ifx\k@family\reserved@a \kanjifamily{utfjShinMGo}%
+  \else\edef\reserved@a{HiraMin}%
+  \ifx\k@family\reserved@a \kanjifamily{utfjHiraMin}%
+  \else\edef\reserved@a{HiraKaku}%
+  \ifx\k@family\reserved@a \kanjifamily{utfjHiraKaku}%
+  \else\edef\reserved@a{HiraMaru}%
+  \ifx\k@family\reserved@a \kanjifamily{utfjHiraMaru}%
+  \else\edef\reserved@a{TBkoin}%
+  \ifx\k@family\reserved@a \kanjifamily{utfjTBKoin}%
+  \else\edef\reserved@a{\gtdefault}%
+  \ifx\k@family\reserved@a \kanjifamily{utfjg}%
+  \else\edef\reserved@a{\mgdefault}%
+  \ifx\k@family\reserved@a \kanjifamily{utfjmg}%
+  \else \kanjifamily{utfj}%
+  \fi\fi\fi\fi\fi\fi\fi\fi\fi%
+  \uppercase{\set@character="#1}%
+  \endgroup%
+}
+\DeclareRobustCommand{\mpCID}[1]{\begingroup%
+  \edef\reserved@a{Ryumin}%
+  \ifx\k@family\reserved@a \kanjifamily{cidjRyumin}%
+  \else\edef\reserved@a{ShinGo}%
+  \ifx\k@family\reserved@a \kanjifamily{cidjShinGo}%
+  \else\edef\reserved@a{ShinMGo}%
+  \ifx\k@family\reserved@a \kanjifamily{cidjShinMGo}%
+  \else\edef\reserved@a{HiraMin}%
+  \ifx\k@family\reserved@a \kanjifamily{cidjHiraMin}%
+  \else\edef\reserved@a{HiraKaku}%
+  \ifx\k@family\reserved@a \kanjifamily{cidjHiraKaku}%
+  \else\edef\reserved@a{HiraMaru}%
+  \ifx\k@family\reserved@a \kanjifamily{cidjHiraMaru}%
+  \else\edef\reserved@a{TBkoin}%
+  \ifx\k@family\reserved@a \kanjifamily{cidjTBKoin}%
+  \else\edef\reserved@a{\gtdefault}%
+  \ifx\k@family\reserved@a \kanjifamily{cidjg}%
+  \else\edef\reserved@a{\mgdefault}%
+  \ifx\k@family\reserved@a \kanjifamily{cidjmg}%
+  \else \kanjifamily{cidj}%
+  \fi\fi\fi\fi\fi\fi\fi\fi\fi%
+  \set@character=#1%
+  \endgroup%
+}
+\DeclareRobustCommand{\mprubyfamily}{%
+  \edef\reserved@a{Ryumin}%
+  \ifx\k@family\reserved@a \kanjifamily{rubyRyumin}%
+  \else\edef\reserved@a{ShinGo}%
+  \ifx\k@family\reserved@a \kanjifamily{rubyShinGo}%
+  \else\edef\reserved@a{ShinMGo}%
+  \ifx\k@family\reserved@a \kanjifamily{rubyShinMGo}%
+  \else\edef\reserved@a{HiraMin}%
+  \ifx\k@family\reserved@a \kanjifamily{rubyHiraMin}%
+  \else\edef\reserved@a{HiraKaku}%
+  \ifx\k@family\reserved@a \kanjifamily{rubyHiraKaku}%
+  \else\edef\reserved@a{HiraMaru}%
+  \ifx\k@family\reserved@a \kanjifamily{rubyHiraMaru}%
+  \else\edef\reserved@a{TBkoin}%
+  \ifx\k@family\reserved@a \kanjifamily{rubyTBkoin}%
+  \else\edef\reserved@a{\gtdefault}%
+  \ifx\k@family\reserved@a \kanjifamily{rubyg}%
+  \else\edef\reserved@a{\mgdefault}%
+  \ifx\k@family\reserved@a \kanjifamily{rubymg}%
+  \else \kanjifamily{ruby}%
+  \fi\fi\fi\fi\fi\fi\fi\fi\fi%
+  \selectfont%
+}
+\if@deluxe
+  \DeclareRobustCommand{\UTF}[1]{\begingroup%
+    \mpUTF{#1}%
+    \endgroup%
+  }
+  \DeclareRobustCommand{\CID}[1]{\begingroup%
+    \mpCID{#1}%
+    \endgroup%
+  }
+  \DeclareRobustCommand{\rubyfamily}{\mprubyfamily}
+\fi
+
+
+% フォント登録をすっきりに
+% family, series, shape, tfmの接頭子
+% \DeclareFontShape@nmlexp{Ryumin}{l}{n}{exp}
+% \DeclareFontShape@nmlexp{rubyRyumin}{l}{n}{ruby}
+% ↓に展開
+% \DeclareFontShape{\otf@JYn}{Ryumin}{l}{n}{<->      s * [\utf@sc@le] \otf@pfx@ \brsg@pfx@ expRyuminl\nlck@sfx@-h}{}
+% \DeclareFontShape{\otf@JTn}{Ryumin}{l}{n}{<->      s * [\utf@sc@le] \otf@pfx@ \brsg@pfx@ expRyuminl\nlck@sfx@-v}{}
+% \DeclareFontShape{\otf@JYn}{rubyRyumin}{l}{n}{<->  s * [\utf@sc@le] \otf@pfx@ rubyRyuminl-h}{}
+% \DeclareFontShape{\otf@JTn}{rubyRyumin}{l}{n}{<->  s * [\utf@sc@le] \otf@pfx@ rubyRyuminl-v}{}
+
+\def\DeclareFontShape@nmlexp#1#2#3#4{%
+  \edef\reserved@a{ruby}%
+  \edef\reserved@b{#4}%
+  \ifx\reserved@a\reserved@b%
+    \DeclareFontShape{\otf@JYn}{#1}{#2}{#3}{<->s*[\utf@sc@le]\otf@pfx@ #1#2-h}{}
+    \DeclareFontShape{\otf@JTn}{#1}{#2}{#3}{<->s*[\utf@sc@le]\otf@pfx@ #1#2-v}{}
+  \else
+    \DeclareFontShape{\otf@JYn}{#1}{#2}{#3}{<->s*[\utf@sc@le]\otf@pfx@ \brsg@pfx@ #4#1#2\nlck@sfx@-h}{}
+    \DeclareFontShape{\otf@JTn}{#1}{#2}{#3}{<->s*[\utf@sc@le]\otf@pfx@ \brsg@pfx@ #4#1#2\nlck@sfx@-v}{}
+  \fi}
+
+
+
+% リュウミン
+
+\DeclareKanjiFamily{\otf@JYn}{Ryumin}{}
+\DeclareKanjiFamily{\otf@JTn}{Ryumin}{}
+\DeclareKanjiFamily{\otf@JYn}{rubyRyumin}{}
+\DeclareKanjiFamily{\otf@JTn}{rubyRyumin}{}
+\if@kana
+  \DeclareFontShape@nmlexp{Ryumin}{l}{n}{exp}
+  \DeclareFontShape@nmlexp{Ryumin}{r}{n}{exp}
+  \DeclareFontShape@nmlexp{Ryumin}{m}{n}{exp}
+  \DeclareFontShape@nmlexp{Ryumin}{b}{n}{exp}
+  \DeclareFontShape@nmlexp{Ryumin}{eb}{n}{exp}
+  \DeclareFontShape@nmlexp{Ryumin}{h}{n}{exp}
+  \DeclareFontShape@nmlexp{Ryumin}{eh}{n}{exp}
+  \DeclareFontShape@nmlexp{Ryumin}{u}{n}{exp}
+  \DeclareFontShape@nmlexp{rubyRyumin}{l}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyRyumin}{r}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyRyumin}{m}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyRyumin}{b}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyRyumin}{eb}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyRyumin}{h}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyRyumin}{eh}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyRyumin}{u}{n}{ruby}
+  \DeclareFontShape@nmlexp{Ryumin}{l}{o}{old}
+  \DeclareFontShape@nmlexp{Ryumin}{r}{o}{old}
+  \DeclareFontShape@nmlexp{Ryumin}{m}{o}{old}
+  \DeclareFontShape@nmlexp{Ryumin}{b}{o}{old}
+  \DeclareFontShape@nmlexp{Ryumin}{eb}{o}{old}
+  \DeclareFontShape@nmlexp{Ryumin}{h}{o}{old}
+  \DeclareFontShape@nmlexp{Ryumin}{eh}{o}{old}
+  \DeclareFontShape@nmlexp{Ryumin}{u}{o}{old}
+\else
+  \DeclareFontShape@nmlexp{Ryumin}{l}{n}{nml}
+  \DeclareFontShape@nmlexp{Ryumin}{r}{n}{nml}
+  \DeclareFontShape@nmlexp{Ryumin}{m}{n}{nml}
+  \DeclareFontShape@nmlexp{Ryumin}{b}{n}{nml}
+  \DeclareFontShape@nmlexp{Ryumin}{eb}{n}{nml}
+  \DeclareFontShape@nmlexp{Ryumin}{h}{n}{nml}
+  \DeclareFontShape@nmlexp{Ryumin}{eh}{n}{nml}
+  \DeclareFontShape@nmlexp{Ryumin}{u}{n}{nml}
+\fi
+
+\DeclareKanjiFamily{\otf@JYn}{utfjRyumin}{}
+\DeclareKanjiFamily{\otf@JTn}{utfjRyumin}{}
+\Declare@FontShape{utfjRyumin}{l}{0123456789abcdefjklmnopqrstuvxyz}{utfjRyuminl\nlck@sfx@}
+\Declare@FontShape{utfjRyumin}{r}{0123456789abcdefjklmnopqrstuvxyz}{utfjRyuminr\nlck@sfx@}
+\Declare@FontShape{utfjRyumin}{m}{0123456789abcdefjklmnopqrstuvxyz}{utfjRyuminm\nlck@sfx@}
+\Declare@FontShape{utfjRyumin}{b}{0123456789abcdefjklmnopqrstuvxyz}{utfjRyuminb\nlck@sfx@}
+\Declare@FontShape{utfjRyumin}{eb}{0123456789abcdefjklmnopqrstuvxyz}{utfjRyumineb\nlck@sfx@}
+\Declare@FontShape{utfjRyumin}{h}{0123456789abcdefjklmnopqrstuvxyz}{utfjRyuminh\nlck@sfx@}
+\Declare@FontShape{utfjRyumin}{eh}{0123456789abcdefjklmnopqrstuvxyz}{utfjRyumineh\nlck@sfx@}
+\Declare@FontShape{utfjRyumin}{u}{0123456789abcdefjklmnopqrstuvxyz}{utfjRyuminu\nlck@sfx@}
+
+\DeclareKanjiFamily{\otf@JYn}{cidjRyumin}{}
+\DeclareKanjiFamily{\otf@JTn}{cidjRyumin}{}
+\Declare@FontShape{cidjRyumin}{l}{012345}{cidjRyuminl}
+\Declare@FontShape{cidjRyumin}{r}{012345}{cidjRyuminr}
+\Declare@FontShape{cidjRyumin}{m}{012345}{cidjRyuminm}
+\Declare@FontShape{cidjRyumin}{b}{012345}{cidjRyuminb}
+\Declare@FontShape{cidjRyumin}{eb}{012345}{cidjRyumineb}
+\Declare@FontShape{cidjRyumin}{h}{012345}{cidjRyuminh}
+\Declare@FontShape{cidjRyumin}{eh}{012345}{cidjRyumineh}
+\Declare@FontShape{cidjRyumin}{u}{012345}{cidjRyuminu}
+
+% モリサワ新ゴ
+
+\DeclareKanjiFamily{\otf@JYn}{ShinGo}{}
+\DeclareKanjiFamily{\otf@JTn}{ShinGo}{}
+\DeclareKanjiFamily{\otf@JYn}{rubyShinGo}{}
+\DeclareKanjiFamily{\otf@JTn}{rubyShinGo}{}
+\if@kana
+  \DeclareFontShape@nmlexp{ShinGo}{el}{n}{exp}
+  \DeclareFontShape@nmlexp{ShinGo}{l}{n}{exp}
+  \DeclareFontShape@nmlexp{ShinGo}{r}{n}{exp}
+  \DeclareFontShape@nmlexp{ShinGo}{m}{n}{exp}
+  \DeclareFontShape@nmlexp{ShinGo}{db}{n}{exp}
+  \DeclareFontShape@nmlexp{ShinGo}{b}{n}{exp}
+  \DeclareFontShape@nmlexp{ShinGo}{h}{n}{exp}
+  \DeclareFontShape@nmlexp{ShinGo}{u}{n}{exp}
+  \DeclareFontShape@nmlexp{rubyShinGo}{el}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyShinGo}{l}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyShinGo}{r}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyShinGo}{m}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyShinGo}{db}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyShinGo}{b}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyShinGo}{h}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyShinGo}{u}{n}{ruby}
+\else
+  \DeclareFontShape@nmlexp{ShinGo}{el}{n}{nml}
+  \DeclareFontShape@nmlexp{ShinGo}{l}{n}{nml}
+  \DeclareFontShape@nmlexp{ShinGo}{r}{n}{nml}
+  \DeclareFontShape@nmlexp{ShinGo}{m}{n}{nml}
+  \DeclareFontShape@nmlexp{ShinGo}{db}{n}{nml}
+  \DeclareFontShape@nmlexp{ShinGo}{b}{n}{nml}
+  \DeclareFontShape@nmlexp{ShinGo}{h}{n}{nml}
+  \DeclareFontShape@nmlexp{ShinGo}{u}{n}{nml}
+\fi
+
+\DeclareKanjiFamily{\otf@JYn}{utfjShinGo}{}
+\DeclareKanjiFamily{\otf@JTn}{utfjShinGo}{}
+\Declare@FontShape{utfjShinGo}{el}{0123456789abcdefjklmnopqrstuvxyz}{utfjShinGoel\nlck@sfx@}
+\Declare@FontShape{utfjShinGo}{l}{0123456789abcdefjklmnopqrstuvxyz}{utfjShinGol\nlck@sfx@}
+\Declare@FontShape{utfjShinGo}{r}{0123456789abcdefjklmnopqrstuvxyz}{utfjShinGor\nlck@sfx@}
+\Declare@FontShape{utfjShinGo}{m}{0123456789abcdefjklmnopqrstuvxyz}{utfjShinGom\nlck@sfx@}
+\Declare@FontShape{utfjShinGo}{db}{0123456789abcdefjklmnopqrstuvxyz}{utfjShinGodb\nlck@sfx@}
+\Declare@FontShape{utfjShinGo}{b}{0123456789abcdefjklmnopqrstuvxyz}{utfjShinGob\nlck@sfx@}
+\Declare@FontShape{utfjShinGo}{h}{0123456789abcdefjklmnopqrstuvxyz}{utfjShinGoh\nlck@sfx@}
+\Declare@FontShape{utfjShinGo}{u}{0123456789abcdefjklmnopqrstuvxyz}{utfjShinGou\nlck@sfx@}
+
+\DeclareKanjiFamily{\otf@JYn}{cidjShinGo}{}
+\DeclareKanjiFamily{\otf@JTn}{cidjShinGo}{}
+\Declare@FontShape{cidjShinGo}{el}{012345}{cidjShinGoel}
+\Declare@FontShape{cidjShinGo}{l}{012345}{cidjShinGol}
+\Declare@FontShape{cidjShinGo}{r}{012345}{cidjShinGor}
+\Declare@FontShape{cidjShinGo}{m}{012345}{cidjShinGom}
+\Declare@FontShape{cidjShinGo}{db}{012345}{cidjShinGodb}
+\Declare@FontShape{cidjShinGo}{b}{012345}{cidjShinGob}
+\Declare@FontShape{cidjShinGo}{h}{012345}{cidjShinGoh}
+\Declare@FontShape{cidjShinGo}{u}{012345}{cidjShinGou}
+
+
+% モリサワ新丸ゴ
+
+\DeclareKanjiFamily{\otf@JYn}{ShinMGo}{}
+\DeclareKanjiFamily{\otf@JTn}{ShinMGo}{}
+\DeclareKanjiFamily{\otf@JYn}{rubyShinMGo}{}
+\DeclareKanjiFamily{\otf@JTn}{rubyShinMGo}{}
+\if@kana
+  \DeclareFontShape@nmlexp{ShinMGo}{l}{n}{exp}
+  \DeclareFontShape@nmlexp{ShinMGo}{r}{n}{exp}
+  \DeclareFontShape@nmlexp{ShinMGo}{m}{n}{exp}
+  \DeclareFontShape@nmlexp{ShinMGo}{db}{n}{exp}
+  \DeclareFontShape@nmlexp{ShinMGo}{b}{n}{exp}
+  \DeclareFontShape@nmlexp{ShinMGo}{h}{n}{exp}
+  \DeclareFontShape@nmlexp{ShinMGo}{u}{n}{exp}
+  \DeclareFontShape@nmlexp{rubyShinMGo}{l}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyShinMGo}{r}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyShinMGo}{m}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyShinMGo}{db}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyShinMGo}{b}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyShinMGo}{h}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyShinMGo}{u}{n}{ruby}
+\else
+  \DeclareFontShape@nmlexp{ShinMGo}{l}{n}{nml}
+  \DeclareFontShape@nmlexp{ShinMGo}{r}{n}{nml}
+  \DeclareFontShape@nmlexp{ShinMGo}{m}{n}{nml}
+  \DeclareFontShape@nmlexp{ShinMGo}{db}{n}{nml}
+  \DeclareFontShape@nmlexp{ShinMGo}{b}{n}{nml}
+  \DeclareFontShape@nmlexp{ShinMGo}{h}{n}{nml}
+  \DeclareFontShape@nmlexp{ShinMGo}{u}{n}{nml}
+\fi
+
+\DeclareKanjiFamily{\otf@JYn}{utfjShinMGo}{}
+\DeclareKanjiFamily{\otf@JTn}{utfjShinMGo}{}
+\Declare@FontShape{utfjShinMGo}{l}{0123456789abcdefjklmnopqrstuvxyz}{utfjShinMGol\nlck@sfx@}
+\Declare@FontShape{utfjShinMGo}{r}{0123456789abcdefjklmnopqrstuvxyz}{utfjShinMGor\nlck@sfx@}
+\Declare@FontShape{utfjShinMGo}{m}{0123456789abcdefjklmnopqrstuvxyz}{utfjShinMGom\nlck@sfx@}
+\Declare@FontShape{utfjShinMGo}{db}{0123456789abcdefjklmnopqrstuvxyz}{utfjShinMGodb\nlck@sfx@}
+\Declare@FontShape{utfjShinMGo}{b}{0123456789abcdefjklmnopqrstuvxyz}{utfjShinMGob\nlck@sfx@}
+\Declare@FontShape{utfjShinMGo}{h}{0123456789abcdefjklmnopqrstuvxyz}{utfjShinMGoh\nlck@sfx@}
+\Declare@FontShape{utfjShinMGo}{u}{0123456789abcdefjklmnopqrstuvxyz}{utfjShinMGou\nlck@sfx@}
+
+\DeclareKanjiFamily{\otf@JYn}{cidjShinMGo}{}
+\DeclareKanjiFamily{\otf@JTn}{cidjShinMGo}{}
+\Declare@FontShape{cidjShinMGo}{l}{012345}{cidjShinMGol}
+\Declare@FontShape{cidjShinMGo}{r}{012345}{cidjShinMGor}
+\Declare@FontShape{cidjShinMGo}{m}{012345}{cidjShinMGom}
+\Declare@FontShape{cidjShinMGo}{db}{012345}{cidjShinMGodb}
+\Declare@FontShape{cidjShinMGo}{b}{012345}{cidjShinMGob}
+\Declare@FontShape{cidjShinMGo}{h}{012345}{cidjShinMGoh}
+\Declare@FontShape{cidjShinMGo}{u}{012345}{cidjShinMGou}
+
+
+
+% ヒラギノ明朝
+
+\DeclareKanjiFamily{\otf@JYn}{HiraMin}{}
+\DeclareKanjiFamily{\otf@JTn}{HiraMin}{}
+\DeclareKanjiFamily{\otf@JYn}{rubyHiraMin}{}
+\DeclareKanjiFamily{\otf@JTn}{rubyHiraMin}{}
+\if@kana
+  \DeclareFontShape@nmlexp{HiraMin}{w2}{n}{exp}
+  \DeclareFontShape@nmlexp{HiraMin}{w3}{n}{exp}
+%  \DeclareFontShape@nmlexp{HiraMin}{w4}{n}{exp}
+  \DeclareFontShape{\otf@JYn}{HiraMin}{w4}{n}{<->s*[\utf@sc@le]\otf@pfx@ \brsg@pfx@ expHiraMinw4\nlck@sfx@-h}{}
+  \DeclareFontShape{\otf@JTn}{HiraMin}{w4}{n}{<->s*[\utf@sc@le]\otf@pfx@ \brsg@pfx@ nmlHiraMinw4\nlck@sfx@-v}{}
+%  \DeclareFontShape@nmlexp{HiraMin}{w5}{n}{exp}
+  \DeclareFontShape{\otf@JYn}{HiraMin}{w5}{n}{<->s*[\utf@sc@le]\otf@pfx@ \brsg@pfx@ expHiraMinw5\nlck@sfx@-h}{}
+  \DeclareFontShape{\otf@JTn}{HiraMin}{w5}{n}{<->s*[\utf@sc@le]\otf@pfx@ \brsg@pfx@ nmlHiraMinw5\nlck@sfx@-v}{}
+  \DeclareFontShape@nmlexp{HiraMin}{w6}{n}{exp}
+  \DeclareFontShape@nmlexp{HiraMin}{w7}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraMin}{w8}{n}{nml}
+  \DeclareFontShape@nmlexp{rubyHiraMin}{w2}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyHiraMin}{w3}{n}{ruby}
+%  \DeclareFontShape@nmlexp{rubyHiraMin}{w4}{n}{ruby}
+  \DeclareFontShape{\otf@JYn}{rubyHiraMin}{w4}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraMinw3-h}{}
+  \DeclareFontShape{\otf@JTn}{rubyHiraMin}{w4}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraMinw3-v}{}
+%  \DeclareFontShape@nmlexp{rubyHiraMin}{w5}{n}{ruby}
+  \DeclareFontShape{\otf@JYn}{rubyHiraMin}{w5}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraMinw3-h}{}
+  \DeclareFontShape{\otf@JTn}{rubyHiraMin}{w5}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraMinw3-v}{}
+  \DeclareFontShape@nmlexp{rubyHiraMin}{w6}{n}{ruby}
+%  \DeclareFontShape@nmlexp{rubyHiraMin}{w7}{n}{ruby}
+  \DeclareFontShape{\otf@JYn}{rubyHiraMin}{w7}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraMinw6-h}{}
+  \DeclareFontShape{\otf@JTn}{rubyHiraMin}{w7}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraMinw6-v}{}
+%  \DeclareFontShape@nmlexp{rubyHiraMin}{w8}{n}{ruby}
+  \DeclareFontShape{\otf@JYn}{rubyHiraMin}{w8}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraMinw6-h}{}
+  \DeclareFontShape{\otf@JTn}{rubyHiraMin}{w8}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraMinw6-v}{}
+  \DeclareFontShape@nmlexp{HiraMin}{w2}{o}{old}
+  \DeclareFontShape@nmlexp{HiraMin}{w3}{o}{old}
+  \DeclareFontShape@nmlexp{HiraMin}{w4}{o}{old}
+  \DeclareFontShape@nmlexp{HiraMin}{w5}{o}{old}
+  \DeclareFontShape@nmlexp{HiraMin}{w6}{o}{old}
+  \DeclareFontShape@nmlexp{HiraMin}{w7}{o}{old}
+  \DeclareFontShape@nmlexp{HiraMin}{w8}{o}{old}
+\else
+  \DeclareFontShape@nmlexp{HiraMin}{w2}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraMin}{w3}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraMin}{w4}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraMin}{w5}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraMin}{w6}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraMin}{w7}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraMin}{w8}{n}{nml}
+\fi
+
+\DeclareKanjiFamily{\otf@JYn}{utfjHiraMin}{}
+\DeclareKanjiFamily{\otf@JTn}{utfjHiraMin}{}
+\Declare@FontShape{utfjHiraMin}{w2}{0123456789abcdefjklmnopqrstuvxyz}{utfjHiraMinw2\nlck@sfx@}
+\Declare@FontShape{utfjHiraMin}{w3}{0123456789abcdefjklmnopqrstuvxyz}{utfjHiraMinw3\nlck@sfx@}
+\Declare@FontShape{utfjHiraMin}{w4}{0123456789abcdefjklmnopqrstuvxyz}{utfjHiraMinw4\nlck@sfx@}
+\Declare@FontShape{utfjHiraMin}{w5}{0123456789abcdefjklmnopqrstuvxyz}{utfjHiraMinw5\nlck@sfx@}
+\Declare@FontShape{utfjHiraMin}{w6}{0123456789abcdefjklmnopqrstuvxyz}{utfjHiraMinw6\nlck@sfx@}
+\Declare@FontShape{utfjHiraMin}{w7}{0123456789abcdefjklmnopqrstuvxyz}{utfjHiraMinw7\nlck@sfx@}
+\Declare@FontShape{utfjHiraMin}{w8}{0123456789abcdefjklmnopqrstuvxyz}{utfjHiraMinw8\nlck@sfx@}
+
+\DeclareKanjiFamily{\otf@JYn}{cidjHiraMin}{}
+\DeclareKanjiFamily{\otf@JTn}{cidjHiraMin}{}
+\Declare@FontShape{cidjHiraMin}{w2}{012345}{cidjHiraMinw2}
+\Declare@FontShape{cidjHiraMin}{w3}{012345}{cidjHiraMinw3}
+\Declare@FontShape{cidjHiraMin}{w4}{012345}{cidjHiraMinw4}
+\Declare@FontShape{cidjHiraMin}{w5}{012345}{cidjHiraMinw5}
+\Declare@FontShape{cidjHiraMin}{w6}{012345}{cidjHiraMinw6}
+\Declare@FontShape{cidjHiraMin}{w7}{012345}{cidjHiraMinw7}
+\Declare@FontShape{cidjHiraMin}{w8}{012345}{cidjHiraMinw8}
+
+% ヒラギノ角ゴ
+
+\DeclareKanjiFamily{\otf@JYn}{HiraKaku}{}
+\DeclareKanjiFamily{\otf@JTn}{HiraKaku}{}
+\DeclareKanjiFamily{\otf@JYn}{rubyHiraKaku}{}
+\DeclareKanjiFamily{\otf@JTn}{rubyHiraKaku}{}
+\if@kana
+  \DeclareFontShape@nmlexp{HiraKaku}{w0}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraKaku}{w1}{n}{exp}
+  \DeclareFontShape@nmlexp{HiraKaku}{w2}{n}{exp}
+  \DeclareFontShape@nmlexp{HiraKaku}{w3}{n}{exp}
+  \DeclareFontShape@nmlexp{HiraKaku}{w4}{n}{exp}
+  \DeclareFontShape@nmlexp{HiraKaku}{w5}{n}{exp}
+  \DeclareFontShape@nmlexp{HiraKaku}{w6}{n}{exp}
+  \DeclareFontShape@nmlexp{HiraKaku}{w7}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraKaku}{w8}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraKaku}{w9}{n}{nml}
+%  \DeclareFontShape@nmlexp{rubyHiraKaku}{w0}{n}{ruby}
+  \DeclareFontShape{\otf@JYn}{rubyHiraKaku}{w0}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraKakuw3-h}{}
+  \DeclareFontShape{\otf@JTn}{rubyHiraKaku}{w0}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraKakuw3-v}{}
+  \DeclareFontShape@nmlexp{rubyHiraKaku}{w1}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyHiraKaku}{w2}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyHiraKaku}{w3}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyHiraKaku}{w4}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyHiraKaku}{w5}{n}{ruby}
+  \DeclareFontShape@nmlexp{rubyHiraKaku}{w6}{n}{ruby}
+%  \DeclareFontShape@nmlexp{rubyHiraKaku}{w7}{n}{ruby}
+  \DeclareFontShape{\otf@JYn}{rubyHiraKaku}{w7}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraKakuw6-h}{}
+  \DeclareFontShape{\otf@JTn}{rubyHiraKaku}{w7}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraKakuw6-v}{}
+%  \DeclareFontShape@nmlexp{rubyHiraKaku}{w8}{n}{ruby}
+  \DeclareFontShape{\otf@JYn}{rubyHiraKaku}{w8}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraKakuw6-h}{}
+  \DeclareFontShape{\otf@JTn}{rubyHiraKaku}{w8}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraKakuw6-v}{}
+%  \DeclareFontShape@nmlexp{rubyHiraKaku}{w9}{n}{ruby}
+  \DeclareFontShape{\otf@JYn}{rubyHiraKaku}{w9}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraKakuw6-h}{}
+  \DeclareFontShape{\otf@JTn}{rubyHiraKaku}{w9}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraKakuw6-v}{}
+\else
+  \DeclareFontShape@nmlexp{HiraKaku}{w0}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraKaku}{w1}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraKaku}{w2}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraKaku}{w3}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraKaku}{w4}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraKaku}{w5}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraKaku}{w6}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraKaku}{w7}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraKaku}{w8}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraKaku}{w9}{n}{nml}
+\fi
+
+\DeclareKanjiFamily{\otf@JYn}{utfjHiraKaku}{}
+\DeclareKanjiFamily{\otf@JTn}{utfjHiraKaku}{}
+\Declare@FontShape{utfjHiraKaku}{w0}{0123456789abcdefjklmnopqrstuvxyz}{utfjHiraKakuw0\nlck@sfx@}
+\Declare@FontShape{utfjHiraKaku}{w1}{0123456789abcdefjklmnopqrstuvxyz}{utfjHiraKakuw1\nlck@sfx@}
+\Declare@FontShape{utfjHiraKaku}{w2}{0123456789abcdefjklmnopqrstuvxyz}{utfjHiraKakuw2\nlck@sfx@}
+\Declare@FontShape{utfjHiraKaku}{w3}{0123456789abcdefjklmnopqrstuvxyz}{utfjHiraKakuw3\nlck@sfx@}
+\Declare@FontShape{utfjHiraKaku}{w4}{0123456789abcdefjklmnopqrstuvxyz}{utfjHiraKakuw4\nlck@sfx@}
+\Declare@FontShape{utfjHiraKaku}{w5}{0123456789abcdefjklmnopqrstuvxyz}{utfjHiraKakuw5\nlck@sfx@}
+\Declare@FontShape{utfjHiraKaku}{w6}{0123456789abcdefjklmnopqrstuvxyz}{utfjHiraKakuw6\nlck@sfx@}
+\Declare@FontShape{utfjHiraKaku}{w7}{0123456789abcdefjklmnopqrstuvxyz}{utfjHiraKakuw7\nlck@sfx@}
+\Declare@FontShape{utfjHiraKaku}{w8}{0123456789abcdefjklmnopqrstuvxyz}{utfjHiraKakuw8\nlck@sfx@}
+\Declare@FontShape{utfjHiraKaku}{w9}{0123456789abcdefjklmnopqrstuvxyz}{utfjHiraKakuw9\nlck@sfx@}
+
+\DeclareKanjiFamily{\otf@JYn}{cidjHiraKaku}{}
+\DeclareKanjiFamily{\otf@JTn}{cidjHiraKaku}{}
+\Declare@FontShape{cidjHiraKaku}{w0}{012345}{cidjHiraKakuw0}
+\Declare@FontShape{cidjHiraKaku}{w1}{012345}{cidjHiraKakuw1}
+\Declare@FontShape{cidjHiraKaku}{w2}{012345}{cidjHiraKakuw2}
+\Declare@FontShape{cidjHiraKaku}{w3}{012345}{cidjHiraKakuw3}
+\Declare@FontShape{cidjHiraKaku}{w4}{012345}{cidjHiraKakuw4}
+\Declare@FontShape{cidjHiraKaku}{w5}{012345}{cidjHiraKakuw5}
+\Declare@FontShape{cidjHiraKaku}{w6}{012345}{cidjHiraKakuw6}
+\Declare@FontShape{cidjHiraKaku}{w7}{012345}{cidjHiraKakuw7}
+\Declare@FontShape{cidjHiraKaku}{w8}{012345}{cidjHiraKakuw8}
+\Declare@FontShape{cidjHiraKaku}{w9}{012345}{cidjHiraKakuw9}
+
+% ヒラギノ丸ゴ
+
+\DeclareKanjiFamily{\otf@JYn}{HiraMaru}{}
+\DeclareKanjiFamily{\otf@JTn}{HiraMaru}{}
+\DeclareKanjiFamily{\otf@JYn}{rubyHiraMaru}{}
+\DeclareKanjiFamily{\otf@JTn}{rubyHiraMaru}{}
+\if@kana
+  \DeclareFontShape@nmlexp{HiraMaru}{w2}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraMaru}{w3}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraMaru}{w4}{n}{exp}
+  \DeclareFontShape@nmlexp{HiraMaru}{w5}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraMaru}{w6}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraMaru}{w8}{n}{nml}
+%  \DeclareFontShape@nmlexp{rubyHiraMaru}{w2}{n}{ruby}
+  \DeclareFontShape{\otf@JYn}{rubyHiraMaru}{w2}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraMaruw4-h}{}
+  \DeclareFontShape{\otf@JTn}{rubyHiraMaru}{w2}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraMaruw4-v}{}
+%  \DeclareFontShape@nmlexp{rubyHiraMaru}{w3}{n}{ruby}
+  \DeclareFontShape{\otf@JYn}{rubyHiraMaru}{w3}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraMaruw4-h}{}
+  \DeclareFontShape{\otf@JTn}{rubyHiraMaru}{w3}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraMaruw4-v}{}
+  \DeclareFontShape@nmlexp{rubyHiraMaru}{w4}{n}{ruby}
+% \DeclareFontShape@nmlexp{rubyHiraMaru}{w5}{n}{ruby}
+  \DeclareFontShape{\otf@JYn}{rubyHiraMaru}{w5}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraMaruw4-h}{}
+  \DeclareFontShape{\otf@JTn}{rubyHiraMaru}{w5}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraMaruw4-v}{}
+% \DeclareFontShape@nmlexp{rubyHiraMaru}{w6}{n}{ruby}
+  \DeclareFontShape{\otf@JYn}{rubyHiraMaru}{w6}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraMaruw4-h}{}
+  \DeclareFontShape{\otf@JTn}{rubyHiraMaru}{w6}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraMaruw4-v}{}
+% \DeclareFontShape@nmlexp{rubyHiraMaru}{w8}{n}{ruby}
+  \DeclareFontShape{\otf@JYn}{rubyHiraMaru}{w8}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraMaruw4-h}{}
+  \DeclareFontShape{\otf@JTn}{rubyHiraMaru}{w8}{n}{<->s*[\utf@sc@le]\otf@pfx@ rubyHiraMaruw4-v}{}
+\else
+  \DeclareFontShape@nmlexp{HiraMaru}{w2}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraMaru}{w3}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraMaru}{w4}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraMaru}{w5}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraMaru}{w6}{n}{nml}
+  \DeclareFontShape@nmlexp{HiraMaru}{w8}{n}{nml}
+\fi
+
+\DeclareKanjiFamily{\otf@JYn}{utfjHiraMaru}{}
+\DeclareKanjiFamily{\otf@JTn}{utfjHiraMaru}{}
+\Declare@FontShape{utfjHiraMaru}{w2}{0123456789abcdefjklmnopqrstuvxyz}{utfjHiraMaruw2\nlck@sfx@}
+\Declare@FontShape{utfjHiraMaru}{w3}{0123456789abcdefjklmnopqrstuvxyz}{utfjHiraMaruw3\nlck@sfx@}
+\Declare@FontShape{utfjHiraMaru}{w4}{0123456789abcdefjklmnopqrstuvxyz}{utfjHiraMaruw4\nlck@sfx@}
+\Declare@FontShape{utfjHiraMaru}{w5}{0123456789abcdefjklmnopqrstuvxyz}{utfjHiraMaruw5\nlck@sfx@}
+\Declare@FontShape{utfjHiraMaru}{w6}{0123456789abcdefjklmnopqrstuvxyz}{utfjHiraMaruw6\nlck@sfx@}
+\Declare@FontShape{utfjHiraMaru}{w8}{0123456789abcdefjklmnopqrstuvxyz}{utfjHiraMaruw8\nlck@sfx@}
+
+\DeclareKanjiFamily{\otf@JYn}{cidjHiraMaru}{}
+\DeclareKanjiFamily{\otf@JTn}{cidjHiraMaru}{}
+\Declare@FontShape{cidjHiraMaru}{w2}{012345}{cidjHiraMaruw2}
+\Declare@FontShape{cidjHiraMaru}{w3}{012345}{cidjHiraMaruw3}
+\Declare@FontShape{cidjHiraMaru}{w4}{012345}{cidjHiraMaruw4}
+\Declare@FontShape{cidjHiraMaru}{w5}{012345}{cidjHiraMaruw5}
+\Declare@FontShape{cidjHiraMaru}{w6}{012345}{cidjHiraMaruw6}
+\Declare@FontShape{cidjHiraMaru}{w8}{012345}{cidjHiraMaruw8}
+
+% TB古印
+
+\DeclareKanjiFamily{\otf@JYn}{TBkoin}{}
+\DeclareKanjiFamily{\otf@JTn}{TBkoin}{}
+\DeclareKanjiFamily{\otf@JYn}{rubyTBkoin}{}
+\DeclareKanjiFamily{\otf@JTn}{rubyTBkoin}{}
+\if@kana
+%  \DeclareFontShape@nmlexp{TBkoin}{m}{n}{exp}
+  \DeclareFontShape@nmlexp{TBkoin}{m}{n}{nml}
+%  \DeclareFontShape@nmlexp{rubyTBkoin}{m}{n}{ruby}
+  \DeclareFontShape{\otf@JYn}{rubyTBkoin}{m}{n}{<->s*[\utf@sc@le]\otf@pfx@ nmlTBkoinm-h}{}
+  \DeclareFontShape{\otf@JTn}{rubyTBkoin}{m}{n}{<->s*[\utf@sc@le]\otf@pfx@ nmlTBkoinm-v}{}
+\else
+  \DeclareFontShape@nmlexp{TBkoin}{m}{n}{nml}
+\fi
+
+\DeclareKanjiFamily{\otf@JYn}{utfjTBkoin}{}
+\DeclareKanjiFamily{\otf@JTn}{utfjTBkoin}{}
+\Declare@FontShape{utfjTBkoin}{m}{0123456789abcdefjklmnopqrstuvxyz}{utfjTBkoinm\nlck@sfx@}
+
+\DeclareKanjiFamily{\otf@JYn}{cidjTBkoin}{}
+\DeclareKanjiFamily{\otf@JTn}{cidjTBkoin}{}
+\Declare@FontShape{cidjTBkoin}{m}{012345}{cidjTBkoinm}
+
